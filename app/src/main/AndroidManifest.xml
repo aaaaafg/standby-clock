@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- 悬浮窗（备用显示模式） -->
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <!-- 前台服务（充电监控） -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <!-- 开机自启 -->
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <!-- 请求加入电池优化白名单（系统权限，用于一键跳转） -->
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- 通知（前台服务通知，Android 13+） -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <!-- 天气数据 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 日历任务页 -->
+    <uses-permission android:name="android.permission.READ_CALENDAR" />
+    <!-- 天气定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <!-- 修改系统亮度（可选，本应用通过窗口亮度实现，无需此权限） -->
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <!-- 点亮屏幕 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- 加速度计（重力传感器缺失时回退），无权限要求 -->
+    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="false" />
+
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Standby">
+
+        <!-- 主界面：iOS 风格分组设置列表 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 设置子页面（外观/防烧屏/天气/权限/使用说明/诊断） -->
+        <activity
+            android:name=".DetailActivity"
+            android:exported="false" />
+
+        <!-- 全屏横屏待机时钟 -->
+        <activity
+            android:name=".ClockActivity"
+            android:excludeFromRecents="true"
+            android:exported="false"
+            android:launchMode="singleTask"
+            android:showWhenLocked="true"
+            android:theme="@style/Theme.StandbyClock"
+            android:turnScreenOn="true"
+            android:configChanges="orientation|screenSize|screenLayout|keyboardHidden|uiMode" />
+
+        <!-- 充电监控前台服务 -->
+        <service
+            android:name=".StandbyService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="待机时钟：充电横放时自动显示全屏时钟" />
+        </service>
+
+        <!-- 开机自启 -->
+        <receiver
+            android:name=".receiver.BootReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <!-- 应用更新后自动恢复监控 -->
+        <receiver
+            android:name=".receiver.UpdateReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

@@ -1,0 +1,17 @@
+.gradle/
+build/
+local.properties
+.idea/
+*.iml
+.DS_Store
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 签名密钥：仅本地保留，不提交到公开仓库
+standby-release.jks
+*.jks
+*.keystore
+
+# 构建中间产物（交付包 dist/ 保留提交，方便直接下载 APK）
+app/build/

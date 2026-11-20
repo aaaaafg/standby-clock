@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">待机时钟</string>
+    <string name="notif_channel_name">待机监控</string>
+    <string name="notif_channel_desc">检测充电与横放状态，自动显示待机时钟</string>
+    <string name="notif_title">待机模式运行中</string>
+    <string name="notif_text">充电并横放手机时，自动显示全屏时钟</string>
+</resources>

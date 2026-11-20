@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 云遮日：云挡住太阳下半部分，太阳从云后右上方露出 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M18.6,0.8 a3.8,3.8 0 1,0 0,7.6 a3.8,3.8 0 1,0 0,-7.6 z" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.6"
+        android:pathData="M18.6,0.2 L18.6,0.8 M21.29,1.91 L22.42,0.78" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M15.6,8 A5.6,5.6 0 1,0 9.3,15 h6.3 a3.5,3.5 0 0 0 0,-7 z" />
+</vector>

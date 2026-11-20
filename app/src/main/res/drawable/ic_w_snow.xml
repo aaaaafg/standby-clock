@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <!-- 雪：云 + 三枚六角雪花 -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M15.6,8 A5.6,5.6 0 1,0 9.3,15 h6.3 a3.5,3.5 0 0 0 0,-7 z" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M7,16.5 L7,19.5 M8.3,17.25 L5.7,18.75 M5.7,17.25 L8.3,18.75" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M12,18 L12,21 M13.3,18.75 L10.7,20.25 M10.7,18.75 L13.3,20.25" />
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="1.5"
+        android:pathData="M17,16.5 L17,19.5 M18.3,17.25 L15.7,18.75 M15.7,17.25 L18.3,18.75" />
+</vector>
