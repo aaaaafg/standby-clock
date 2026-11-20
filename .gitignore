@@ -8,13 +8,13 @@ captures/
 .externalNativeBuild/
 .cxx/
 
-# 签名密钥：仅本地保留，不提交到公开仓库
+# signing keystore: keep local only, never commit to a public repo
 standby-release.jks
 *.jks
 *.keystore
 
-# 构建中间产物（交付包 dist/ 保留提交，方便直接下载 APK）
+# build intermediates (dist/ is kept so the APK can be downloaded directly)
 app/build/
 
-# ������ʱ/����������Ŀ¼
+# local third-party tool backups
 flclash-fix-backup/
